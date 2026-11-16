@@ -1,66 +1,57 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Toko Danish – Computer Spare-Part E-Commerce
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A multi-seller online store for computer spare parts, built with **Laravel 11** and **Tailwind CSS** as a team project (4 people) for the Software Engineering Project course (PPL), Universitas Sebelas Maret, 2025.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Product catalog with categories and product detail pages
+- User accounts (Laravel Breeze), profile and shipping addresses
+- Cart, checkout, order summary and order history
+- **Midtrans** payment gateway
+- Shipping cost lookup by province/city and courier via the **RajaOngkir** API
+- Product ratings
+- Seller onboarding and seller dashboard to add, edit and delete products
+- Product images stored on **Google Cloud Storage** (Cloudinary also configured)
+- Deployable to **Vercel** (serverless PHP, see `vercel.json`)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## My contribution (Muhammad Aspa Zikra)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Cart and payment flow: cart CRUD, quantity updates, checkout, Midtrans integration
+- Seller product management
+- Google Cloud Storage configuration for product image uploads
 
-## Learning Laravel
+## Tech stack
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Laravel 11, PHP, Blade, Tailwind CSS, MySQL, Vite, Midtrans, RajaOngkir API, Google Cloud Storage, Vercel
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Running locally
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+git clone https://github.com/aspazikra/Toko-Danish-PPL-Kel-4.git
+cd Toko-Danish-PPL-Kel-4
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+```
 
-## Laravel Sponsors
+Fill in `.env`:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Database: `DB_CONNECTION`, `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`
+- Midtrans: `MIDTRANS_SERVER_KEY`
+- RajaOngkir: `API_ONGKIR_KEY`
+- Google Cloud Storage: `GOOGLE_CLOUD_PROJECT_ID`, `GOOGLE_CLOUD_KEY_FILE`, `GOOGLE_CLOUD_STORAGE_BUCKET`
 
-### Premium Partners
+Then:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+php artisan migrate --seed
+npm run dev
+php artisan serve
+```
 
-## Contributing
+## Team
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+[Abqli484](https://github.com/Abqli484) · Muhammad Danish Dhiyaulhaq · qmafaza · [Muhammad Aspa Zikra](https://github.com/aspazikra)
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Forked from [Abqli484/Toko-Danish-PPL-Kel-4](https://github.com/Abqli484/Toko-Danish-PPL-Kel-4).
